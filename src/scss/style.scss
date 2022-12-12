@@ -15,9 +15,10 @@ body {
 }
 
 .window {
-    position: relative;
-	width: 100%;
-	height: 100%;
+	position: relative;
+	width: 100vw;
+	height: 800px;
+	min-height: 100vh;
 	.progress {
 		width: 100%;
 		height: 25vh;
@@ -49,10 +50,18 @@ body {
 			}
 		}
 	}
-	.content {
+	.fill-the-gap {
 		width: 100%;
-		min-height: 75vh;
+		height: 75vh;
 		background-color: $bgcColor;
+	}
+	.content {
+		position: absolute;
+		left: 20px;
+		top: 110px;
+		width: calc(100% - 40px);
+		min-height: 75vh;
+		overflow: visible;
 		.content-header {
 			margin-bottom: 20px;
 			font-size: 25px;
@@ -61,21 +70,17 @@ body {
 			letter-spacing: 1px;
 		}
 		.content-text {
-			margin-bottom: 25px;
 			font-size: 18px;
 			color: $text;
 		}
 		.content-window {
-			position: absolute;
-			left: 20px;
-			top: 110px;
-			width: calc(100% - 40px);
+			width: 100%;
 			padding: 35px 25px;
 			background-color: #fff;
 			border-radius: 10px;
 			.form-field {
 				display: flex;
-				margin-bottom: 6px;
+				margin: 25px 0 6px 0;
 				justify-content: space-between;
 				align-items: center;
 				label {
@@ -90,7 +95,6 @@ body {
 			input {
 				width: 100%;
 				height: 45px;
-				margin-bottom: 25px;
 				padding: 0 15px;
 				border: 1px solid $text;
 				border-radius: 5px;
@@ -106,40 +110,42 @@ body {
 				border: 1px solid $strawberry-red;
 			}
 		}
-        .buttons-bar {
-            width: 100%;
-            height: 100px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            background-color: #fff;
-            .buttons-btn {
-                height: 45px;
-                width: 110px;
-                margin: 0 20px;
-                border: 1px solid transparent;
-                border-radius: 5px;
-                background-color: transparent;
-                font-size: 16px;
-                color: $text;
-                cursor: pointer;
-                transition: transform 0.4s, border 0.4s, background 0.4s;
-            }
-            .buttons-next {
-                background-color: $btn-next;
-                color: white;
-            }
-            .buttons-next:hover,
-            .buttons-next:focus,
-            .buttons-next:active {
-                background-color: $purplish-blue;
-            }
-            .buttons-btn:active,
-            .buttons-btn:focus,
-            .buttons-btn:hover {
-                border: 1px solid $text;
-            }
-        }
 	}
-	
+	.buttons-bar {
+		position: absolute;
+		bottom: 0;
+		left: 0px;
+		width: 100%;
+		height: 100px;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		background-color: #fff;
+		.buttons-btn {
+			height: 45px;
+			width: 110px;
+			margin: 0 20px;
+			border: 1px solid transparent;
+			border-radius: 5px;
+			background-color: transparent;
+			font-size: 16px;
+			color: $text;
+			cursor: pointer;
+			transition: transform 0.4s, border 0.4s, background 0.4s;
+		}
+		.buttons-next {
+			background-color: $btn-next;
+			color: white;
+		}
+		.buttons-next:hover,
+		.buttons-next:focus,
+		.buttons-next:active {
+			background-color: $purplish-blue;
+		}
+		.buttons-btn:active,
+		.buttons-btn:focus,
+		.buttons-btn:hover {
+			border: 1px solid $text;
+		}
+	}
 }
