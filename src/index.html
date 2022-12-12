@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap" rel="stylesheet">
+  <title>Frontend Mentor | Multi-step form</title>
+
+
+</head>
+<body>
+
+  <main>
+
+    <div class="window">
+      <div class="progress">
+        <div class="progress-steps">
+          <div class="progress-step progress-one progress-active">1</div>
+          <div class="progress-step progress-two">2</div>
+          <div class="progress-step progress-three">3</div>
+          <div class="progress-step progress-four">4</div>
+        </div>
+      </div>
+
+      <div class="content">
+
+        <div class="content-window content-one">
+          <h2 class="content-header">Personal info</h2>
+          <p class="content-text">Please provide your name, email address, and phone number.</p>
+          <form action="" method="post" class="form-user-data">
+
+            <div class="form-field"><label for="user-name">Name</label>
+              <p class="error">Name is required</p>
+            </div>
+            <input type="text" id="user-name" placeholder="e.g. Stephen King" maxlength="50">
+
+            <div class="form-field"><label for="user-email">Email Address</label>
+              <p class="error">Email is required</p>
+            </div>
+            <input type="email" id="user-email" placeholder="e.g. stephenking@lorem.com">
+
+            <div class="form-field"><label for="user-phone">Phone Number</label>
+              <p class="error">Phone number is required</p>
+            </div>
+            <input type="tel" id="user-phone" placeholder="e.g. stephenking@lorem.com">
+
+          </form>
+        </div>
+        <div class="buttons-bar">
+          <button class="buttons-btn buttons-back invisible">Go Back</button>
+          <button class="buttons-btn buttons-next">Next Step</button>
+        </div>
+      </div>
+
+      
+    </div>
+
+  </main>
+
+  <!-- <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Your Name Here</a>.
+  </div> -->
+</body>
+</html>
