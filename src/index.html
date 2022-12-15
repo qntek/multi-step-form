@@ -31,7 +31,7 @@
 
       <section class="content">
 
-        <div class="content-window" id="content-one">
+        <div class="content-window off" id="content-one">
           <h2 class="content-header">Personal info</h2>
           <p class="content-text">Please provide your name, email address, and phone number.</p>
 
@@ -56,18 +56,18 @@
           </form>
         </div>
 
-        <div class="content-window off" id="content-two">
+        <div class="content-window " id="content-two">
           <h2 class="content-header">Select your plan</h2>
           <p class="content-text">You have the option of monthly or yearly billing.</p>
 
           <div class="content-two-options">
 
-            <div class="content-two-option content-selected" id="step-two-opt-1">
+            <div class="content-two-option" id="step-two-opt-1">
               <div class="content-two-option-contener ">
                 <img src="./images/icon-arcade.svg" alt="">
                 <div>
                   <h3>Arcade</h3>
-                  <p>$9 / mo</p>
+                  <p>$<span id="step-two-one-price">9</span> / <span class="mo-yr">mo</span></p>
                   <p class="promotion off">2 months free</p>
                 </div>
               </div>
@@ -78,7 +78,7 @@
                 <img src="./images/icon-advanced.svg" alt="">
                 <div>
                   <h3>Advanced</h3>
-                  <p>$12 / mo</p>
+                  <p>$<span id="step-two-two-price">12</span> / <span class="mo-yr">mo</span></p>
                   <p class="promotion off">2 months free</p>
                 </div>
               </div>
@@ -88,7 +88,7 @@
                 <img src="./images/icon-pro.svg" alt="">
                 <div>
                   <h3>Arcade</h3>
-                  <p>$15 / mo</p>
+                  <p>$<span id="step-two-three-price">15</span> / <span class="mo-yr">mo</span></p>
                   <p class="promotion off">2 months free</p>
                 </div>
               </div>
@@ -122,7 +122,7 @@
                 <p class="text">Access to multiplayer games</p>
               </div>
               <div class="content-three-option-price">
-                <p>+$<span id="step-three-one-price">1</span>/<span id="mo-yr">mo</span></p>
+                <p>+$<span id="step-three-one-price">1</span>/<span class="mo-yr">mo</span></p>
               </div>
             </div>
             <div class="content-three-option step-three-two">
@@ -137,7 +137,7 @@
                 <p class="text">Extra 1TB of cloud save</p>
               </div>
               <div class="content-three-option-price">
-                <p>+$<span id="step-three-two-price">2</span>/<span id="mo-yr">mo</span></p>
+                <p>+$<span id="step-three-two-price">2</span>/<span class="mo-yr">mo</span></p>
               </div>
             </div>
             <div class="content-three-option step-three-three">
@@ -152,7 +152,7 @@
                 <p class="text">Custom theme on your profile</p>
               </div>
               <div class="content-three-option-price">
-                <p>+$<span id="step-three-three-price">2</span>/<span id="mo-yr">mo</span></p>
+                <p>+$<span id="step-three-three-price">2</span>/<span class="mo-yr">mo</span></p>
               </div>
             </div>
 

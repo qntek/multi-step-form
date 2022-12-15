@@ -2,16 +2,19 @@ import '../scss/style.scss';
 import '../index.html';
 
 let step = 1;
+const user = {};
 const btnNext = document.querySelector('.buttons-next');
 const btnBack = document.querySelector('.buttons-back');
+const stepTwoOptions = document.querySelector('.content-two-options');
 
 btnNext.addEventListener('click', btnNextHandler);
 btnBack.addEventListener('click', btnBackHandler);
+stepTwoOptions.addEventListener('click', (e) => stepTwoSelectPlanHandler(e));
 
 function btnNextHandler() {
 	switch (step) {
 		case 1:
-			let name = stepOneNameValidate();
+			let name = nameValidate();
 			let email = emailValidate();
 			let phone = phoneValidate();
 			if (name && email && phone) {
@@ -23,11 +26,10 @@ function btnNextHandler() {
 				step = 1;
 				btnBack.classList.add('invisible');
 			}
-			name, email, (phone = null);
 			break;
 	}
 }
-
+// form first step logic start here:
 function btnBackHandler() {
 	switch (step) {
 		case 2:
@@ -39,7 +41,7 @@ function btnBackHandler() {
 	}
 }
 
-function stepOneNameValidate() {
+function nameValidate() {
 	const name = document.getElementById('user-name');
 	const errorMsg = name.closest('div').querySelector('.error-name');
 	const regName = /^[a-zA-Z]+ [a-zA-Z]+$/; // validates the name field if it's constructed with a two words made only from letters (with one space between).
@@ -47,6 +49,7 @@ function stepOneNameValidate() {
 	if (regName.test(name.value) || regNameSingle.test(name.value)) {
 		errorMsg.classList.add('invisible');
 		name.classList.remove('error-border');
+		user.name = name.value.trim();
 		return true;
 	} else {
 		errorMsg.classList.remove('invisible');
@@ -63,6 +66,7 @@ function emailValidate() {
 	if (regEmail.test(email.value)) {
 		errorEmail.classList.add('invisible');
 		email.classList.remove('error-border');
+		user.email = email.value.trim();
 		return true;
 	} else {
 		errorEmail.classList.remove('invisible');
@@ -78,10 +82,23 @@ function phoneValidate() {
 	if (countryCodeRegex.test(phone.value)) {
 		errorPhone.classList.add('invisible');
 		phone.classList.remove('error-border');
+		user.phone = phone.value.trim();
 		return true;
 	} else {
 		errorPhone.classList.remove('invisible');
 		phone.classList.add('error-border');
 		return false;
+	}
+}
+// form first step logic ends here
+
+// form second step logic starts here
+function stepTwoSelectPlanHandler(e) {
+	const options = stepTwoOptions.querySelectorAll('.content-two-option');
+	const clickedOption = e.target.closest('div.content-two-option');
+	console.log(clickedOption);
+	if (clickedOption) {
+		options.forEach((option) => option.classList.remove('content-selected'));
+		clickedOption.classList.add('content-selected');
 	}
 }
