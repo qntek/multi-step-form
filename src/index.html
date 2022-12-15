@@ -31,28 +31,28 @@
 
       <section class="content">
 
-        <div class="content-window off" id="content-one">
+        <div class="content-window" id="content-one">
           <h2 class="content-header">Personal info</h2>
           <p class="content-text">Please provide your name, email address, and phone number.</p>
 
           <form action="" method="post" class="form-user-data">
             <div class="form-field">
               <label for="user-name">Name</label>
-              <p class="error invisible">Name is required</p>
+              <p class="error error-name invisible">Name is required</p>
             </div>
             <input type="text" id="user-name" placeholder="e.g. Stephen King" maxlength="50">
 
             <div class="form-field">
               <label for="user-email">Email Address</label>
-              <p class="error invisible">Email is required</p>
+              <p class="error error-mail invisible">Email is required</p>
             </div>
             <input type="email" id="user-email" placeholder="e.g. stephenking@lorem.com">
 
             <div class="form-field">
               <label for="user-phone">Phone Number</label>
-              <p class="error invisible">Phone number is required</p>
+              <p class="error error-phone invisible">Phone number is required</p>
             </div>
-            <input type="tel" id="user-phone" placeholder="e.g. stephenking@lorem.com">
+            <input type="number" id="user-phone" placeholder="e.g. +1 234 567 890" value="1234567891">
           </form>
         </div>
 
@@ -104,7 +104,7 @@
           </div>
         </div>
 
-        <div class="content-window" id="content-three">
+        <div class="content-window off" id="content-three">
           <h2 class="content-header">Pick add-ons</h2>
           <p class="content-text">Add-ons help enhance your gaming experience.</p>
 
@@ -140,7 +140,7 @@
                 <p>+$<span id="step-three-two-price">2</span>/<span id="mo-yr">mo</span></p>
               </div>
             </div>
-            <div class="content-three-option step-three-three content-selected">
+            <div class="content-three-option step-three-three">
               <div class="content-three-checkbox-contener">
                 <label class="checkbox_btn">
                   <input type="checkbox" id="step-three-three">
@@ -165,7 +165,7 @@
       </section>
 
       <section class="buttons-bar">
-        <button class="buttons-btn buttons-back">Go Back</button>
+        <button class="buttons-btn buttons-back invisible">Go Back</button>
         <button class="buttons-btn buttons-next">Next Step</button>
       </section>
 
