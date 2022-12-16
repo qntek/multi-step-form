@@ -2,9 +2,21 @@ import '../scss/style.scss';
 import '../index.html';
 
 let step = 1;
-const user = {};
+const user = {
+	name: '',
+	email: '',
+	phone: '',
+	period: 'mo',
+	plan: '',
+	plans: {
+		Arcade: '9',
+		Advanced: '12',
+		Pro: '15',
+	},
+};
 const btnNext = document.querySelector('.buttons-next');
 const btnBack = document.querySelector('.buttons-back');
+const progressBar = document.querySelectorAll('.progress-step');
 const stepTwoOptions = document.querySelector('.content-two-options');
 
 btnNext.addEventListener('click', btnNextHandler);
@@ -22,25 +34,45 @@ function btnNextHandler() {
 				btnBack.classList.remove('invisible');
 				document.getElementById('content-one').classList.add('off');
 				document.getElementById('content-two').classList.remove('off');
+				progressAdjust();
 			} else {
 				step = 1;
 				btnBack.classList.add('invisible');
+				progressAdjust();
 			}
 			break;
-	}
-}
-// form first step logic start here:
-function btnBackHandler() {
-	switch (step) {
 		case 2:
-			step--;
-			btnBack.classList.add('invisible');
-			document.getElementById('content-one').classList.remove('off');
+			step = 3;
 			document.getElementById('content-two').classList.add('off');
+			document.getElementById('content-three').classList.remove('off');
+			progressAdjust();
 			break;
 	}
 }
 
+function btnBackHandler() {
+	switch (step) {
+		case 2:
+			step = 1;
+			btnBack.classList.add('invisible');
+			document.getElementById('content-one').classList.remove('off');
+			document.getElementById('content-two').classList.add('off');
+			progressAdjust();
+			break;
+		case 3: 
+			step = 2;
+			document.getElementById('content-two').classList.remove('off');
+			document.getElementById('content-three').classList.add('off');
+			progressAdjust();
+	}
+}
+function progressAdjust() {
+	progressBar.forEach((progressIcon) => {
+		progressIcon.classList.remove('progress-active');
+	});
+	progressBar[step - 1].classList.add('progress-active');
+}
+// form first step logic start here:
 function nameValidate() {
 	const name = document.getElementById('user-name');
 	const errorMsg = name.closest('div').querySelector('.error-name');
@@ -95,10 +127,39 @@ function phoneValidate() {
 // form second step logic starts here
 function stepTwoSelectPlanHandler(e) {
 	const options = stepTwoOptions.querySelectorAll('.content-two-option');
-	const clickedOption = e.target.closest('div.content-two-option');
-	console.log(clickedOption);
+	const clickedOption = e.target.closest('div.content-two-option');	
+	e.stopPropagation();
 	if (clickedOption) {
+		if (clickedOption.classList.contains('content-selected')) {
+			clickedOption.classList.remove('content-selected');
+			user.plan = '';
+			return;
+		}
 		options.forEach((option) => option.classList.remove('content-selected'));
 		clickedOption.classList.add('content-selected');
+		user.plan = clickedOption.querySelector('h3').textContent;
+	}
+	selectPeriod(e);
+}
+
+function selectPeriod(e) {
+	if (e.target.classList.contains('toggle-checkbox')) {
+		const stepTwoToggle = document.getElementById('toggle-checkbox');
+		const planNoOne = document.getElementById('step-two-one-price');
+		const planNoTwo = document.getElementById('step-two-two-price');
+		const planNoThree = document.getElementById('step-two-three-price');
+		stepTwoToggle.checked ? (user.period = 'yr') : (user.period = 'mo');
+		document
+			.querySelectorAll('.mo-yr')
+			.forEach((p) => (p.textContent = user.period));
+		if (user.period == 'mo') {
+			planNoOne.textContent = user.plans.Arcade;
+			planNoTwo.textContent = user.plans.Advanced;
+			planNoThree.textContent = user.plans.Pro;
+		} else {
+			planNoOne.textContent = +user.plans.Arcade * 10;
+			planNoTwo.textContent = +user.plans.Advanced * 10;
+			planNoThree.textContent = +user.plans.Pro * 10;
+		}
 	}
 }

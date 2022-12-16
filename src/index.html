@@ -20,10 +20,10 @@
     <section class="window">
       <section class="progress">
         <div class="progress-steps">
-          <div class="progress-step progress-one progress-active">1</div>
-          <div class="progress-step progress-two">2</div>
-          <div class="progress-step progress-three">3</div>
-          <div class="progress-step progress-four">4</div>
+          <div class="progress-step progress-active">1</div>
+          <div class="progress-step">2</div>
+          <div class="progress-step">3</div>
+          <div class="progress-step">4</div>
         </div>
       </section>
 
@@ -31,7 +31,7 @@
 
       <section class="content">
 
-        <div class="content-window off" id="content-one">
+        <div class="content-window" id="content-one">
           <h2 class="content-header">Personal info</h2>
           <p class="content-text">Please provide your name, email address, and phone number.</p>
 
@@ -56,7 +56,7 @@
           </form>
         </div>
 
-        <div class="content-window " id="content-two">
+        <div class="content-window off" id="content-two">
           <h2 class="content-header">Select your plan</h2>
           <p class="content-text">You have the option of monthly or yearly billing.</p>
 
@@ -87,7 +87,7 @@
               <div class="content-two-option-contener">
                 <img src="./images/icon-pro.svg" alt="">
                 <div>
-                  <h3>Arcade</h3>
+                  <h3>Pro</h3>
                   <p>$<span id="step-two-three-price">15</span> / <span class="mo-yr">mo</span></p>
                   <p class="promotion off">2 months free</p>
                 </div>
@@ -96,7 +96,7 @@
             <div class="toggle-contener">
               <label class="toggle">
                 <span class="toggle-label toggle-active">Monthly</span>
-                <input class="toggle-checkbox" type="checkbox">
+                <input class="toggle-checkbox" id="toggle-checkbox" type="checkbox">
                 <div class="toggle-switch"></div>
                 <span class="toggle-label">Yearly</span>
               </label>
