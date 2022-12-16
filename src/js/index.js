@@ -9,9 +9,16 @@ const user = {
 	period: 'mo',
 	plan: '',
 	plans: {
+		// month period
 		Arcade: '9',
 		Advanced: '12',
 		Pro: '15',
+	},
+	addons: {
+		// month period
+		onlineService: 1,
+		largerStorage: 2,
+		customizableProfile: 2,
 	},
 };
 const btnNext = document.querySelector('.buttons-next');
@@ -59,7 +66,7 @@ function btnBackHandler() {
 			document.getElementById('content-two').classList.add('off');
 			progressAdjust();
 			break;
-		case 3: 
+		case 3:
 			step = 2;
 			document.getElementById('content-two').classList.remove('off');
 			document.getElementById('content-three').classList.add('off');
@@ -127,7 +134,7 @@ function phoneValidate() {
 // form second step logic starts here
 function stepTwoSelectPlanHandler(e) {
 	const options = stepTwoOptions.querySelectorAll('.content-two-option');
-	const clickedOption = e.target.closest('div.content-two-option');	
+	const clickedOption = e.target.closest('div.content-two-option');
 	e.stopPropagation();
 	if (clickedOption) {
 		if (clickedOption.classList.contains('content-selected')) {
@@ -148,18 +155,32 @@ function selectPeriod(e) {
 		const planNoOne = document.getElementById('step-two-one-price');
 		const planNoTwo = document.getElementById('step-two-two-price');
 		const planNoThree = document.getElementById('step-two-three-price');
+		const addonOne = document.getElementById('step-three-one-price');
+		const addonTwo = document.getElementById('step-three-two-price');
+		const addonThree = document.getElementById('step-three-three-price');
 		stepTwoToggle.checked ? (user.period = 'yr') : (user.period = 'mo');
+
 		document
+			.querySelectorAll('.mo-yr')
+			.forEach((p) => (p.textContent = user.period));
+		document
+			.getElementById('content-three')
 			.querySelectorAll('.mo-yr')
 			.forEach((p) => (p.textContent = user.period));
 		if (user.period == 'mo') {
 			planNoOne.textContent = user.plans.Arcade;
 			planNoTwo.textContent = user.plans.Advanced;
 			planNoThree.textContent = user.plans.Pro;
+			addonOne.textContent = user.addons.onlineService;
+			addonTwo.textContent = user.addons.largerStorage;
+			addonThree.textContent = user.addons.customizableProfile;
 		} else {
 			planNoOne.textContent = +user.plans.Arcade * 10;
 			planNoTwo.textContent = +user.plans.Advanced * 10;
 			planNoThree.textContent = +user.plans.Pro * 10;
+			addonOne.textContent = +user.addons.onlineService * 10;
+			addonTwo.textContent = +user.addons.largerStorage * 10;
+			addonThree.textContent = +user.addons.customizableProfile * 10;
 		}
 	}
 }
