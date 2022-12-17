@@ -154,7 +154,6 @@ body {
 					}
 				}
 			}
-			
 		}
 		.content-three-options {
 			height: 100%;
@@ -207,6 +206,82 @@ body {
 				cursor: pointer;
 			}
 		}
+		.content-four {
+			margin-top: 20px;
+			padding: 15px;
+			background-color: rgb(248, 249, 254);
+			&-plan {
+				display: flex;
+				&-text {
+					width: calc(100% - 40px);
+					button {
+						margin-bottom: 15px;
+						background: none;
+						border: none;
+						text-decoration: underline;
+						color: $text;
+						font-size: 14px;
+						cursor: pointer;
+					}
+				}
+				&-summary {
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					width: 40px;
+					color: $marine-blue;
+					font-weight: 700;
+					font-size: 14px;
+				}
+			}
+			&-plan-text {
+				color: $marine-blue;
+				font-weight: 700;
+				font-size: 16px;
+			}
+			hr {
+				margin-bottom: 10px;
+				border: none;
+				height: 1px;
+				background-color: rgb(224, 211, 211);
+			}
+			&-addons-container {
+				display: flex;
+				margin: 5px 0;
+				.content-four-addon-name {
+					width: calc(100% - 40px);
+					p {
+						font-size: 14px;
+						color: $text;
+					}
+				}
+				.content-four-addon-price {
+					p {
+						font-size: 14px;
+						color: $marine-blue;
+						font-weight: 500;
+					}
+				}
+			}
+		}
+		.content-four-total-container {
+			margin-top: 25px;
+			padding: 0 15px;
+			p {
+				display: inline-block;
+				width: calc(100% - 40px - 25px);
+				font-size: 14px;
+				color: $text;
+			}
+			.content-four-total-price {
+				width: 40px;
+				font-size: 16px;
+				color: $purplish-blue;
+				font-weight: 700;
+
+			}
+		}
+
 		.content-selected {
 			border-color: $marine-blue !important;
 			background-color: $bgcColor;

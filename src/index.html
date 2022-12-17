@@ -1,179 +1,215 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- displays site properly based on user's device -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- displays site properly based on user's device -->
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap" rel="stylesheet">
-  <title>Frontend Mentor | Multi-step form</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap" rel="stylesheet">
+    <title>Frontend Mentor | Multi-step form</title>
 
 
 </head>
 <body>
 
-  <main>
+    <main>
 
-    <section class="window">
-      <section class="progress">
-        <div class="progress-steps">
-          <div class="progress-step progress-active">1</div>
-          <div class="progress-step">2</div>
-          <div class="progress-step">3</div>
-          <div class="progress-step">4</div>
-        </div>
-      </section>
-
-      <div class="fill-the-gap"></div>
-
-      <section class="content">
-
-        <div class="content-window" id="content-one">
-          <h2 class="content-header">Personal info</h2>
-          <p class="content-text">Please provide your name, email address, and phone number.</p>
-
-          <form action="" method="post" class="form-user-data">
-            <div class="form-field">
-              <label for="user-name">Name</label>
-              <p class="error error-name invisible">Name is required</p>
-            </div>
-            <input type="text" id="user-name" placeholder="e.g. Stephen King" maxlength="50">
-
-            <div class="form-field">
-              <label for="user-email">Email Address</label>
-              <p class="error error-mail invisible">Email is required</p>
-            </div>
-            <input type="email" id="user-email" placeholder="e.g. stephenking@lorem.com">
-
-            <div class="form-field">
-              <label for="user-phone">Phone Number</label>
-              <p class="error error-phone invisible">Phone number is required</p>
-            </div>
-            <input type="number" id="user-phone" placeholder="e.g. +1 234 567 890" value="1234567891">
-          </form>
-        </div>
-
-        <div class="content-window off" id="content-two">
-          <h2 class="content-header">Select your plan</h2>
-          <p class="content-text">You have the option of monthly or yearly billing.</p>
-
-          <div class="content-two-options">
-
-            <div class="content-two-option">
-              <div class="content-two-option-contener ">
-                <img src="./images/icon-arcade.svg" alt="">
-                <div>
-                  <h3>Arcade</h3>
-                  <p>$<span id="step-two-one-price">9</span> / <span class="mo-yr">mo</span></p>
-                  <p class="promotion off">2 months free</p>
+        <section class="window">
+            <section class="progress">
+                <div class="progress-steps">
+                    <div class="progress-step progress-active">1</div>
+                    <div class="progress-step">2</div>
+                    <div class="progress-step">3</div>
+                    <div class="progress-step">4</div>
                 </div>
-              </div>
-            </div>
+            </section>
 
-            <div class="content-two-option">
-              <div class="content-two-option-contener">
-                <img src="./images/icon-advanced.svg" alt="">
-                <div>
-                  <h3>Advanced</h3>
-                  <p>$<span id="step-two-two-price">12</span> / <span class="mo-yr">mo</span></p>
-                  <p class="promotion off">2 months free</p>
+            <div class="fill-the-gap"></div>
+
+            <section class="content">
+
+                <div class="content-window off" id="content-one">
+                    <h2 class="content-header">Personal info</h2>
+                    <p class="content-text">Please provide your name, email address, and phone number.</p>
+
+                    <form action="" method="post" class="form-user-data">
+                        <div class="form-field">
+                            <label for="user-name">Name</label>
+                            <p class="error error-name invisible">Name is required</p>
+                        </div>
+                        <input type="text" id="user-name" placeholder="e.g. Stephen King" maxlength="50">
+
+                        <div class="form-field">
+                            <label for="user-email">Email Address</label>
+                            <p class="error error-mail invisible">Email is required</p>
+                        </div>
+                        <input type="email" id="user-email" placeholder="e.g. stephenking@lorem.com">
+
+                        <div class="form-field">
+                            <label for="user-phone">Phone Number</label>
+                            <p class="error error-phone invisible">Phone number is required</p>
+                        </div>
+                        <input type="number" id="user-phone" placeholder="e.g. +1 234 567 890" value="1234567891">
+                    </form>
                 </div>
-              </div>
-            </div>
-            <div class="content-two-option">
-              <div class="content-two-option-contener">
-                <img src="./images/icon-pro.svg" alt="">
-                <div>
-                  <h3>Pro</h3>
-                  <p>$<span id="step-two-three-price">15</span> / <span class="mo-yr">mo</span></p>
-                  <p class="promotion off">2 months free</p>
+
+                <div class="content-window off" id="content-two">
+                    <h2 class="content-header">Select your plan</h2>
+                    <p class="content-text">You have the option of monthly or yearly billing.</p>
+
+                    <div class="content-two-options">
+
+                        <div class="content-two-option content-selected">
+                            <div class="content-two-option-contener ">
+                                <img src="./images/icon-arcade.svg" alt="">
+                                <div>
+                                    <h3>Arcade</h3>
+                                    <p>$<span id="step-two-one-price">9</span> / <span class="mo-yr">mo</span></p>
+                                    <p class="promotion off">2 months free</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="content-two-option">
+                            <div class="content-two-option-contener">
+                                <img src="./images/icon-advanced.svg" alt="">
+                                <div>
+                                    <h3>Advanced</h3>
+                                    <p>$<span id="step-two-two-price">12</span> / <span class="mo-yr">mo</span></p>
+                                    <p class="promotion off">2 months free</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="content-two-option">
+                            <div class="content-two-option-contener">
+                                <img src="./images/icon-pro.svg" alt="">
+                                <div>
+                                    <h3>Pro</h3>
+                                    <p>$<span id="step-two-three-price">15</span> / <span class="mo-yr">mo</span></p>
+                                    <p class="promotion off">2 months free</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="toggle-contener">
+                            <label class="toggle">
+                                <span class="toggle-label toggle-active">Monthly</span>
+                                <input class="toggle-checkbox" id="toggle-checkbox" type="checkbox">
+                                <div class="toggle-switch"></div>
+                                <span class="toggle-label">Yearly</span>
+                            </label>
+                        </div>
+                    </div>
                 </div>
-              </div>
-            </div>
-            <div class="toggle-contener">
-              <label class="toggle">
-                <span class="toggle-label toggle-active">Monthly</span>
-                <input class="toggle-checkbox" id="toggle-checkbox" type="checkbox">
-                <div class="toggle-switch"></div>
-                <span class="toggle-label">Yearly</span>
-              </label>
-            </div>
-          </div>
-        </div>
 
-        <div class="content-window off" id="content-three">
-          <h2 class="content-header">Pick add-ons</h2>
-          <p class="content-text">Add-ons help enhance your gaming experience.</p>
+                <div class="content-window off" id="content-three">
+                    <h2 class="content-header">Pick add-ons</h2>
+                    <p class="content-text">Add-ons help enhance your gaming experience.</p>
 
-          <div class="content-three-options">
+                    <div class="content-three-options">
 
-            <div class="content-three-option step-three-one">
-              <div class="content-three-checkbox-contener">
-                <label class="checkbox_btn">
-                  <input type="checkbox" id="step-three-one">
-                  <span class="mark"></span>
-                </label>
-              </div>
-              <div class="content-three-option-text">
-                <h3>Online service</h3>
-                <p class="text">Access to multiplayer games</p>
-              </div>
-              <div class="content-three-option-price">
-                <p>+$<span id="step-three-one-price">1</span> / <span class="mo-yr">mo</span></p>
-              </div>
-            </div>
-            <div class="content-three-option step-three-two">
-              <div class="content-three-checkbox-contener">
-                <label class="checkbox_btn">
-                  <input type="checkbox" id="step-three-two">
-                  <span class="mark"></span>
-                </label>
-              </div>
-              <div class="content-three-option-text">
-                <h3>Larger storage</h3>
-                <p class="text">Extra 1TB of cloud save</p>
-              </div>
-              <div class="content-three-option-price">
-                <p>+$<span id="step-three-two-price">2</span> / <span class="mo-yr">mo</span></p>
-              </div>
-            </div>
-            <div class="content-three-option step-three-three">
-              <div class="content-three-checkbox-contener">
-                <label class="checkbox_btn">
-                  <input type="checkbox" id="step-three-three">
-                  <span class="mark"></span>
-                </label>
-              </div>
-              <div class="content-three-option-text">
-                <h3>Customizable profile</h3>
-                <p class="text">Custom theme on your profile</p>
-              </div>
-              <div class="content-three-option-price">
-                <p>+$<span id="step-three-three-price">2</span> / <span class="mo-yr">mo</span></p>
-              </div>
-            </div>
+                        <div class="content-three-option step-three-one">
+                            <div class="content-three-checkbox-contener">
+                                <label class="checkbox_btn">
+                                    <input type="checkbox" id="step-three-one">
+                                    <span class="mark"></span>
+                                </label>
+                            </div>
+                            <div class="content-three-option-text">
+                                <h3>Online service</h3>
+                                <p class="text">Access to multiplayer games</p>
+                            </div>
+                            <div class="content-three-option-price">
+                                <p>+$<span id="step-three-one-price">1</span> / <span class="mo-yr">mo</span></p>
+                            </div>
+                        </div>
+                        <div class="content-three-option step-three-two">
+                            <div class="content-three-checkbox-contener">
+                                <label class="checkbox_btn">
+                                    <input type="checkbox" id="step-three-two">
+                                    <span class="mark"></span>
+                                </label>
+                            </div>
+                            <div class="content-three-option-text">
+                                <h3>Larger storage</h3>
+                                <p class="text">Extra 1TB of cloud save</p>
+                            </div>
+                            <div class="content-three-option-price">
+                                <p>+$<span id="step-three-two-price">2</span> / <span class="mo-yr">mo</span></p>
+                            </div>
+                        </div>
+                        <div class="content-three-option step-three-three">
+                            <div class="content-three-checkbox-contener">
+                                <label class="checkbox_btn">
+                                    <input type="checkbox" id="step-three-three">
+                                    <span class="mark"></span>
+                                </label>
+                            </div>
+                            <div class="content-three-option-text">
+                                <h3>Customizable profile</h3>
+                                <p class="text">Custom theme on your profile</p>
+                            </div>
+                            <div class="content-three-option-price">
+                                <p>+$<span id="step-three-three-price">2</span> / <span class="mo-yr">mo</span></p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="content-window" id="content-four">
+                    <h2 class="content-header">Finishing up</h2>
+                    <p class="content-text">Double-check if everything looks OK before confirming.</p>
+
+                    <div class="content-four">
+                        <div class="content-four-plan">
+                            <div class="content-four-plan-text">
+                                <p class="step-four-plan-period"><span id="step-four-plan">Arcade</span> (<span id="step-four-period">Monthly</span>)</p>
+                                <button type='button' id="step-foru-change-plan">Change</button>
+                            </div>
+
+                            <div class="content-four-plan-summary">
+                                <p class="content-four-plan-summary-text">
+                                    $<span id="step-four-plan-price">9</span>/<span class="mo-yr">mo</span>
+                                </p>
+                            </div>
+                        </div>
 
 
-          </div>
+                        <hr>
 
+                        <div class="content-four-addons-container">
+                            <div class="content-four-addon-name">
+                                <p><span class="text">Nazwa addonu</span></p>
+                            </div>
+                            <div class="content-four-addon-price">
+                                <p>+$<span class="step-four-addon-price">1</span>/<span class="mo-yr">mo</span></p>
+                            </div>
+                        </div>
+                    </div>
 
-        </div>
-        </div>
-      </section>
+                    <div class="content-four-total-container">
+                        <p class="text">Total (per <span id="step-four-total-period">month</span>)</p>
+                        <p class="content-four-total-price">+$<span id="content-four-total-price">12</span>/<span
+                                class="mo-yr">mo</span></p>
+                    </div>
+                </div>
 
-      <section class="buttons-bar">
-        <button class="buttons-btn buttons-back invisible">Go Back</button>
-        <button class="buttons-btn buttons-next">Next Step</button>
-      </section>
+                </div>
+            </section>
 
-    </section>
+            <section class="buttons-bar">
+                <button class="buttons-btn buttons-back invisible">Go Back</button>
+                <button class="buttons-btn buttons-next">Next Step</button>
+            </section>
 
-  </main>
+        </section>
 
-  <!-- <div class="attribution">
+    </main>
+
+    <!-- <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
     Coded by <a href="#">Your Name Here</a>.
   </div> -->

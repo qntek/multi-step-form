@@ -7,20 +7,24 @@ const user = {
 	email: '',
 	phone: '',
 	period: 'mo',
-	plan: '',
 	plans: {
+		// place to store prices, so this is the only place that needs to be updated if price changes
 		// month period
-		Arcade: '9',
-		Advanced: '12',
-		Pro: '15',
+		arcade: '9',
+		advanced: '12',
+		pro: '15',
 	},
 	addons: {
+		// same as plans section
 		// month period
 		onlineService: 1,
 		largerStorage: 2,
 		customizableProfile: 2,
 	},
+	selectedPlan: '',
+	selectedAddons: [],
 };
+
 const btnNext = document.querySelector('.buttons-next');
 const btnBack = document.querySelector('.buttons-back');
 const progressBar = document.querySelectorAll('.progress-step');
@@ -53,6 +57,7 @@ function btnNextHandler() {
 			document.getElementById('content-two').classList.add('off');
 			document.getElementById('content-three').classList.remove('off');
 			progressAdjust();
+			settingListenersForAddonsInThirdStep();
 			break;
 	}
 }
@@ -73,12 +78,14 @@ function btnBackHandler() {
 			progressAdjust();
 	}
 }
+
 function progressAdjust() {
 	progressBar.forEach((progressIcon) => {
 		progressIcon.classList.remove('progress-active');
 	});
 	progressBar[step - 1].classList.add('progress-active');
 }
+
 // form first step logic start here:
 function nameValidate() {
 	const name = document.getElementById('user-name');
@@ -137,14 +144,9 @@ function stepTwoSelectPlanHandler(e) {
 	const clickedOption = e.target.closest('div.content-two-option');
 	e.stopPropagation();
 	if (clickedOption) {
-		if (clickedOption.classList.contains('content-selected')) {
-			clickedOption.classList.remove('content-selected');
-			user.plan = '';
-			return;
-		}
 		options.forEach((option) => option.classList.remove('content-selected'));
 		clickedOption.classList.add('content-selected');
-		user.plan = clickedOption.querySelector('h3').textContent;
+		user.selectedPlan = clickedOption.querySelector('h3').textContent.toLowerCase();
 	}
 	selectPeriod(e);
 }
@@ -184,3 +186,30 @@ function selectPeriod(e) {
 		}
 	}
 }
+// form second step logic ends here
+
+// form third step logic starts here
+
+function settingListenersForAddonsInThirdStep() {
+	const addons = document.querySelectorAll('.content-three-option');
+
+	addons.forEach((addon) => {
+		addon.addEventListener('click', (event) => {
+			event.stopPropagation();
+			let option = addon.querySelector('input');
+			if (option.checked) {
+				option.checked = false;
+				if (user.selectedAddons.indexOf(option.id) !== -1) {
+					user.selectedAddons.splice(user.selectedAddons.indexOf(option.id), 1);
+				}
+			} else {
+				option.checked = true;
+				if (user.selectedAddons.indexOf(option.id) === -1) // because of the bubbling, Array.push section launches two times when clicked directly on input checkbox. I didn't find solution to this problem (thot that event.stopPropagation() will help, but no) so for now I just test if element's id is already in array.
+				{user.selectedAddons.push(option.id);}
+			}
+			console.log(user);
+		});
+	});
+}
+
+// form third step logic ends here
