@@ -21,8 +21,9 @@ const user = {
 		largerStorage: 2,
 		customizableProfile: 2,
 	},
-	selectedPlan: '',
+	selectedPlan: 'arcade',
 	selectedAddons: [],
+	totalPaid: 0,
 };
 
 const btnNext = document.querySelector('.buttons-next');
@@ -59,6 +60,13 @@ function btnNextHandler() {
 			progressAdjust();
 			settingListenersForAddonsInThirdStep();
 			break;
+		case 3:
+			step = 4;
+			document.getElementById('content-three').classList.add('off');
+			document.getElementById('content-four').classList.remove('off');
+			progressAdjust();
+			summaryGenerator();
+			break;
 	}
 }
 
@@ -76,6 +84,13 @@ function btnBackHandler() {
 			document.getElementById('content-two').classList.remove('off');
 			document.getElementById('content-three').classList.add('off');
 			progressAdjust();
+			break;
+		case 4:
+			step = 3;
+			document.getElementById('content-three').classList.remove('off');
+			document.getElementById('content-four').classList.add('off');
+			progressAdjust();
+			break;
 	}
 }
 
@@ -146,7 +161,9 @@ function stepTwoSelectPlanHandler(e) {
 	if (clickedOption) {
 		options.forEach((option) => option.classList.remove('content-selected'));
 		clickedOption.classList.add('content-selected');
-		user.selectedPlan = clickedOption.querySelector('h3').textContent.toLowerCase();
+		user.selectedPlan = clickedOption
+			.querySelector('h3')
+			.textContent.toLowerCase();
 	}
 	selectPeriod(e);
 }
@@ -170,16 +187,16 @@ function selectPeriod(e) {
 			.querySelectorAll('.mo-yr')
 			.forEach((p) => (p.textContent = user.period));
 		if (user.period == 'mo') {
-			planNoOne.textContent = user.plans.Arcade;
-			planNoTwo.textContent = user.plans.Advanced;
-			planNoThree.textContent = user.plans.Pro;
+			planNoOne.textContent = user.plans.arcade;
+			planNoTwo.textContent = user.plans.advanced;
+			planNoThree.textContent = user.plans.pro;
 			addonOne.textContent = user.addons.onlineService;
 			addonTwo.textContent = user.addons.largerStorage;
 			addonThree.textContent = user.addons.customizableProfile;
 		} else {
-			planNoOne.textContent = +user.plans.Arcade * 10;
-			planNoTwo.textContent = +user.plans.Advanced * 10;
-			planNoThree.textContent = +user.plans.Pro * 10;
+			planNoOne.textContent = +user.plans.arcade * 10;
+			planNoTwo.textContent = +user.plans.advanced * 10;
+			planNoThree.textContent = +user.plans.pro * 10;
 			addonOne.textContent = +user.addons.onlineService * 10;
 			addonTwo.textContent = +user.addons.largerStorage * 10;
 			addonThree.textContent = +user.addons.customizableProfile * 10;
@@ -204,12 +221,107 @@ function settingListenersForAddonsInThirdStep() {
 				}
 			} else {
 				option.checked = true;
-				if (user.selectedAddons.indexOf(option.id) === -1) // because of the bubbling, Array.push section launches two times when clicked directly on input checkbox. I didn't find solution to this problem (thot that event.stopPropagation() will help, but no) so for now I just test if element's id is already in array.
-				{user.selectedAddons.push(option.id);}
+				if (user.selectedAddons.indexOf(option.id) === -1) {
+					// because of the bubbling, Array.push section launches two times when clicked directly on input checkbox. I didn't find solution to this problem (thot that event.stopPropagation() will help, but no) so for now I just test if element's id is already in array.
+					user.selectedAddons.push(option.id);
+				}
 			}
-			console.log(user);
 		});
 	});
 }
 
 // form third step logic ends here
+
+// form fourth step logic starts here
+
+function summaryGenerator() {
+	const changePlanBtn = document.getElementById('step-four-change-plan');
+	changePlanBtn.addEventListener('click', goBackToChangePlan);
+	summaryPlanDetailsGenerator();
+	summaryAddonListGenerator();
+	summaryTotalPrice();
+}
+
+function goBackToChangePlan() {
+	document.getElementById('content-four').classList.add('off');
+	document.getElementById('content-two').classList.remove('off');
+	step = 2;
+	progressAdjust();
+}
+
+function summaryPlanDetailsGenerator() {
+	let planPrice = document.getElementById('step-four-plan-price');
+	let planName =
+		user.selectedPlan.slice(0, 1).toUpperCase() +
+		user.selectedPlan.slice(1).toLowerCase();
+	document.getElementById('step-four-plan').textContent = planName;
+
+	if (user.period === 'mo') {
+		document.getElementById('step-four-period').textContent = 'Monthly';
+		document.getElementById(
+			'step-four-plan-price'
+		).nextElementSibling.textContent = 'mo';
+	} else {
+		document.getElementById('step-four-period').textContent = 'Yearly';
+		document.getElementById(
+			'step-four-plan-price'
+		).nextElementSibling.textContent = 'yr';
+	}
+	if (user.period == 'mo') {
+		planPrice.textContent = user.plans[user.selectedPlan];
+	} else {
+		planPrice.textContent = +user.plans[user.selectedPlan] * 10;
+	}
+	
+}
+
+function summaryAddonListGenerator() {
+	const addonsList = document.querySelector('.content-four-addons-container');
+	addonsList.innerHTML = '';
+	user.totalPaid = +user.plans[user.selectedPlan]; // when user go back and change plan or addons, totalPaid has to be recalculated.
+	if (user.period == 'yr') {user.totalPaid *= 10};
+	if (user.selectedAddons.length > 0) {
+		for (let i = 0; i < user.selectedAddons.length; i++) {
+			summaryAddonListElementGenerator(i);
+		}
+	}
+}
+
+function summaryAddonListElementGenerator(n) {
+	const addonsList = document.querySelector('.content-four-addons-container');
+	const addonName = document.createElement('div');
+	const addonPrice = document.createElement('div');
+
+	let name = document
+		.getElementById(user.selectedAddons[n])
+		.closest('.content-three-option')
+		.querySelector('h3').textContent;
+	let price = user.addons[user.selectedAddons[n]];
+	if (user.period === 'yr') price = +price * 10;
+	user.totalPaid += +price;
+	addonName.setAttribute('class', 'content-four-addon-name');
+	addonName.innerHTML = `
+	<p><span class="text"></span></p>
+	`;
+	addonsList.appendChild(addonName);
+	addonName.querySelector('.text').textContent = `${name}`;
+
+	addonPrice.setAttribute('class', 'content-four-addon-price');
+	addonPrice.innerHTML = `
+	<p>+$<span class="step-four-addon-price"></span>/<span class="mo-yr"></span></p>
+	`;
+	addonsList.appendChild(addonPrice);
+	addonPrice.querySelector('.step-four-addon-price').textContent = price;
+	addonPrice.querySelector('.mo-yr').textContent = user.period;
+}
+
+function summaryTotalPrice() {
+	const period = document.getElementById('step-four-total-period');
+	const price = document.getElementById('content-four-total-price');
+
+	if (user.period == 'mo') {
+		period.textContent = 'month';
+	} else period.textContent = 'year';
+	price.textContent = user.totalPaid;
+}
+// form fourth step logic ends here

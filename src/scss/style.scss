@@ -226,12 +226,12 @@ body {
 				}
 				&-summary {
 					display: flex;
-					justify-content: center;
 					align-items: center;
 					width: 40px;
 					color: $marine-blue;
 					font-weight: 700;
 					font-size: 14px;
+					text-align: right;
 				}
 			}
 			&-plan-text {
@@ -247,7 +247,11 @@ body {
 			}
 			&-addons-container {
 				display: flex;
+				flex-wrap: wrap;
 				margin: 5px 0;
+				div {
+					margin: 10px 0;
+				}
 				.content-four-addon-name {
 					width: calc(100% - 40px);
 					p {
@@ -256,7 +260,9 @@ body {
 					}
 				}
 				.content-four-addon-price {
+					width: 40px;
 					p {
+						text-align: right;
 						font-size: 14px;
 						color: $marine-blue;
 						font-weight: 500;
@@ -266,7 +272,8 @@ body {
 		}
 		.content-four-total-container {
 			margin-top: 25px;
-			padding: 0 15px;
+			padding-left: 15px;
+			
 			p {
 				display: inline-block;
 				width: calc(100% - 40px - 25px);
@@ -278,7 +285,7 @@ body {
 				font-size: 16px;
 				color: $purplish-blue;
 				font-weight: 700;
-
+				text-align: right;
 			}
 		}
 
