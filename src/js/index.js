@@ -119,7 +119,10 @@ function nameValidate() {
 	const errorMsg = name.closest('div').querySelector('.error-name');
 	const regName = /^[a-zA-Z]+ [a-zA-Z]+$/; // validates the name field if it's constructed with a two words made only from letters (with one space between).
 	const regNameSingle = /^[a-zA-Z]+$/; // single word
-	if (regName.test(name.value) || regNameSingle.test(name.value)) {
+	if (
+		(regName.test(name.value) || regNameSingle.test(name.value)) &&
+		name.value.length >= 5
+	) {
 		errorMsg.classList.add('invisible');
 		name.classList.remove('error-border');
 		user.name = name.value.trim();
@@ -134,8 +137,12 @@ function nameValidate() {
 function emailValidate() {
 	const email = document.getElementById('user-email');
 	const errorEmail = email.closest('div').querySelector('.error-mail');
-	const regEmail =
-		/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+	// const regEmail =
+	// 	/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+	const regEmail = new RegExp(
+		/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
+		'gm'
+	);
 	if (regEmail.test(email.value)) {
 		errorEmail.classList.add('invisible');
 		email.classList.remove('error-border');
@@ -228,11 +235,13 @@ function settingListenersForAddonsInThirdStep() {
 			let option = addon.querySelector('input');
 			if (option.checked) {
 				option.checked = false;
+				addon.closest('.content-three-option').style.borderColor = '';
 				if (user.selectedAddons.indexOf(option.id) !== -1) {
 					user.selectedAddons.splice(user.selectedAddons.indexOf(option.id), 1);
 				}
 			} else {
 				option.checked = true;
+				addon.closest('.content-three-option').style.borderColor = 'hsl(243, 100%, 62%)';
 				if (user.selectedAddons.indexOf(option.id) === -1) {
 					// because of the bubbling, Array.push section launches two times when clicked directly on input checkbox. I didn't find solution to this problem (thot that event.stopPropagation() will help, but no) so for now I just test if element's id is already in array.
 					user.selectedAddons.push(option.id);
@@ -259,6 +268,8 @@ function goBackToChangePlan() {
 	document.getElementById('content-two').classList.remove('off');
 	step = 2;
 	progressAdjust();
+	btnNext.textContent = 'Next Step';
+	btnNext.style.backgroundColor = '';
 }
 
 function summaryPlanDetailsGenerator() {
@@ -342,5 +353,5 @@ function summaryTotalPrice() {
 async function pageReload() {
 	return new Promise((resolve) => {
 		setTimeout(resolve, 5000);
-	})
+	});
 }

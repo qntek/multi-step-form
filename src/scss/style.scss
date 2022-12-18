@@ -30,6 +30,11 @@ body {
 		background-image: url('../images/bg-sidebar-mobile.svg');
 		background-size: cover;
 		background-position: center;
+		.progress-text,
+		.progress-text-step,
+		.progress-text-title {
+			display: none;
+		}
 		.progress-steps {
 			width: fit-content;
 			margin: 0 auto;
@@ -345,3 +350,5 @@ body {
 		}
 	}
 }
+
+@import 'min-width-768px';
