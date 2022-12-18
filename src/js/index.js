@@ -35,7 +35,7 @@ btnNext.addEventListener('click', btnNextHandler);
 btnBack.addEventListener('click', btnBackHandler);
 stepTwoOptions.addEventListener('click', (e) => stepTwoSelectPlanHandler(e));
 
-function btnNextHandler() {
+async function btnNextHandler() {
 	switch (step) {
 		case 1:
 			let name = nameValidate();
@@ -66,6 +66,16 @@ function btnNextHandler() {
 			document.getElementById('content-four').classList.remove('off');
 			progressAdjust();
 			summaryGenerator();
+			btnNext.style.backgroundColor = 'hsl(243, 100%, 62%)';
+			btnNext.textContent = 'Confirm';
+			break;
+		case 4:
+			document.getElementById('content-four').classList.add('off');
+			document.getElementById('content-five').classList.remove('off');
+			btnNext.classList.add('off');
+			btnBack.classList.add('off');
+			await pageReload();
+			window.location.reload();
 			break;
 	}
 }
@@ -90,6 +100,8 @@ function btnBackHandler() {
 			document.getElementById('content-three').classList.remove('off');
 			document.getElementById('content-four').classList.add('off');
 			progressAdjust();
+			btnNext.textContent = 'Next Step';
+			btnNext.style.backgroundColor = '';
 			break;
 	}
 }
@@ -272,14 +284,15 @@ function summaryPlanDetailsGenerator() {
 	} else {
 		planPrice.textContent = +user.plans[user.selectedPlan] * 10;
 	}
-	
 }
 
 function summaryAddonListGenerator() {
 	const addonsList = document.querySelector('.content-four-addons-container');
 	addonsList.innerHTML = '';
 	user.totalPaid = +user.plans[user.selectedPlan]; // when user go back and change plan or addons, totalPaid has to be recalculated.
-	if (user.period == 'yr') {user.totalPaid *= 10};
+	if (user.period == 'yr') {
+		user.totalPaid *= 10;
+	}
 	if (user.selectedAddons.length > 0) {
 		for (let i = 0; i < user.selectedAddons.length; i++) {
 			summaryAddonListElementGenerator(i);
@@ -325,3 +338,9 @@ function summaryTotalPrice() {
 	price.textContent = user.totalPaid;
 }
 // form fourth step logic ends here
+
+async function pageReload() {
+	return new Promise((resolve) => {
+		setTimeout(resolve, 5000);
+	})
+}

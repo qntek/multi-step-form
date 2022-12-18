@@ -288,7 +288,19 @@ body {
 				text-align: right;
 			}
 		}
+		.content-five {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			&-img {
+				margin: 40px 0px 20px 0px;	
+				width: 60px;
+			}
+			.content-text {
+				text-align: center;
+			}
 
+		}
 		.content-selected {
 			border-color: $marine-blue !important;
 			background-color: $bgcColor;
