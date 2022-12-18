@@ -1,4 +1,4 @@
-@media (min-width: 768px) {
+@media (min-width: 1200px) {
 	body {
 		width: 100vw;
 		height: 100vh;
@@ -10,14 +10,14 @@
 	.window {
 		display: flex;
 		padding: 15px;
-		max-width: 720px;
+		max-width: 1100px;
 		margin: 0 auto;
 		height: 700px;
 		min-height: 0;
 		border-radius: 20px;
 		background-color: #fff;
 		.progress {
-			width: 240px;
+			width: 300px;
 			height: 100%;
 			padding: 0;
 			background-image: url('../images/bg-sidebar-desktop.svg');
@@ -81,14 +81,14 @@
 		}
 		.content {
 			position: absolute;
-			left: 300px;
+			left: 345px;
 			top: 25px;
-			width: calc(100% - 40px - 300px);
+			width: calc(100% - 40px - 350px);
 			min-height: 75vh;
 			overflow: visible;
 			.content-header {
 				margin-bottom: 20px;
-				font-size: 25px;
+				font-size: 30px;
 				font-weight: 700;
 				color: $marine-blue;
 				letter-spacing: 1px;
@@ -138,12 +138,12 @@
 			.content-two-options {
 				display: grid;
 				grid-template-columns: 1fr 1fr 1fr;
-				grid-template-rows: 2.5fr 1fr;
+				grid-template-rows: 3fr 1fr;
 				justify-items: center;
 				margin-top: 20px;
 				.content-two-option {
-					height: 130px;
-					width: 100px;
+					height: 160px;
+					width: 150px;
 					margin-top: 10px;
 					transition: all 0.4s;
 					border: 1px solid $text;
@@ -171,7 +171,7 @@
 						
 						
 						img {
-							width: 35px;
+							width: 55px;
 						}
 						div {
 							height: 100%;
@@ -182,18 +182,18 @@
 							margin-bottom: 5px;
 							h3 {
 								margin-bottom: 5px;
-								font-size: 15px;
+								font-size: 18px;
 								color: $marine-blue;
 								letter-spacing: 1px;
 							}
 							p {
-								font-size: 13px;
+								font-size: 14px;
 								color: $text;
 							}
 							.promotion {
 								margin-top: 10px;
 								color: $marine-blue;
-								font-size: 13px;
+								font-size: 14px;
 							}
 						}
 					}
@@ -224,29 +224,29 @@
 						align-items: center;
 					}
 					.content-three-option-text {
-						width: calc(100% - 50px - 60px);
+						width: calc(100% - 50px - 80px);
 						padding-right: 5px;
 						display: flex;
 						flex-direction: column;
 						justify-content: center;
 						h3 {
 							color: $marine-blue;
-							font-size: 15px;
+							font-size: 18px;
 							margin-bottom: 5px;
 						}
 						p {
 							color: $text;
-							font-size: 13px;
+							font-size: 15px;
 						}
 					}
 					.content-three-option-price {
-						width: 60px;
+						width: 80px;
 						padding-right: 8px;
 						display: flex;
 						justify-content: center;
 						align-items: center;
 						p {
-							font-size: 13px;
+							font-size: 15px;
 							color: $purplish-blue;
 						}
 					}
@@ -264,14 +264,14 @@
 				&-plan {
 					display: flex;
 					&-text {
-						width: calc(100% - 40px);
+						width: calc(100% - 60px);
 						button {
 							margin-bottom: 15px;
 							background: none;
 							border: none;
 							text-decoration: underline;
 							color: $text;
-							font-size: 14px;
+							font-size: 16px;
 							cursor: pointer;
 							transition: color 0.4s;
 						}
@@ -282,17 +282,17 @@
 					&-summary {
 						display: flex;
 						align-items: center;
-						width: 40px;
+						width: 60px;
 						color: $marine-blue;
 						font-weight: 700;
-						font-size: 14px;
+						font-size: 16px;
 						text-align: right;
 					}
 				}
 				&-plan-text {
 					color: $marine-blue;
 					font-weight: 700;
-					font-size: 16px;
+					font-size: 18px;
 				}
 				hr {
 					margin-bottom: 10px;
@@ -308,17 +308,17 @@
 						margin: 10px 0;
 					}
 					.content-four-addon-name {
-						width: calc(100% - 40px);
+						width: calc(100% - 60px);
 						p {
-							font-size: 14px;
+							font-size: 16px;
 							color: $text;
 						}
 					}
 					.content-four-addon-price {
-						width: 40px;
+						width: 60px;
 						p {
 							text-align: right;
-							font-size: 14px;
+							font-size: 16px;
 							color: $marine-blue;
 							font-weight: 500;
 						}
@@ -331,13 +331,13 @@
 
 				p {
 					display: inline-block;
-					width: calc(100% - 40px - 25px);
-					font-size: 14px;
+					width: calc(100% - 60px - 25px);
+					font-size: 16px;
 					color: $text;
 				}
 				.content-four-total-price {
-					width: 40px;
-					font-size: 16px;
+					width: 60px;
+					font-size: 18px;
 					color: $purplish-blue;
 					font-weight: 700;
 					text-align: right;
@@ -346,7 +346,7 @@
 			.content-five {
 				position: absolute;
 				top: 50%;
-				transform: translate(0, -60%);
+				transform: translate(0, -105%);
 				display: flex;
 				flex-direction: column;
 				align-items: center;
@@ -355,6 +355,9 @@
 					width: 90px;
 				}
 				.content-text {
+					width: 75%;
+					font-size: 18px;
+					line-height: 26px;
 					text-align: center;
 				}
 			}
@@ -372,12 +375,12 @@
 			border-radius: 20px;
 			.buttons-btn {
 				height: 45px;
-				width: 70px;
+				width: 90px;
 				margin: 0 20px;
 				border: 1px solid transparent;
 				border-radius: 5px;
 				background-color: transparent;
-				font-size: 16px;
+				font-size: 20px;
 				color: $text;
 				cursor: pointer;
 				transition: transform 0.4s, border 0.4s, background 0.4s;
@@ -398,7 +401,7 @@
 				border: 1px solid $text;
 			}
 			.buttons-back {
-				margin-left: 300px;
+				margin-left: 370px;
 			}
 		}
 	}

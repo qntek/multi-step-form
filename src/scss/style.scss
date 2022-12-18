@@ -129,7 +129,7 @@ body {
 				border-radius: 8px;
 				outline-color: $marine-blue;
 				cursor: pointer;
-
+				transition: transform 0.4s;
 				.content-two-option-contener {
 					padding: 15px;
 					display: flex;
@@ -158,6 +158,9 @@ body {
 						}
 					}
 				}
+			}
+			.content-two-option:hover {
+				transform: scale(1.05);
 			}
 		}
 		.content-three-options {
@@ -352,3 +355,4 @@ body {
 }
 
 @import 'min-width-768px';
+@import 'min-width-1200px';
