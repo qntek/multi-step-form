@@ -137,8 +137,6 @@ function nameValidate() {
 function emailValidate() {
 	const email = document.getElementById('user-email');
 	const errorEmail = email.closest('div').querySelector('.error-mail');
-	// const regEmail =
-	// 	/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 	const regEmail = new RegExp(
 		/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
 		'gm'
@@ -196,6 +194,8 @@ function selectPeriod(e) {
 		const addonOne = document.getElementById('step-three-one-price');
 		const addonTwo = document.getElementById('step-three-two-price');
 		const addonThree = document.getElementById('step-three-three-price');
+		const toggleMo = document.getElementById('toggle-mo');
+		const toggleYr = document.getElementById('toggle-yr');
 		stepTwoToggle.checked ? (user.period = 'yr') : (user.period = 'mo');
 
 		document
@@ -212,6 +212,8 @@ function selectPeriod(e) {
 			addonOne.textContent = user.addons.onlineService;
 			addonTwo.textContent = user.addons.largerStorage;
 			addonThree.textContent = user.addons.customizableProfile;
+			toggleYr.classList.remove('toggle-active');
+			toggleMo.classList.add('toggle-active');
 		} else {
 			planNoOne.textContent = +user.plans.arcade * 10;
 			planNoTwo.textContent = +user.plans.advanced * 10;
@@ -219,6 +221,8 @@ function selectPeriod(e) {
 			addonOne.textContent = +user.addons.onlineService * 10;
 			addonTwo.textContent = +user.addons.largerStorage * 10;
 			addonThree.textContent = +user.addons.customizableProfile * 10;
+			toggleYr.classList.add('toggle-active');
+			toggleMo.classList.remove('toggle-active');
 		}
 	}
 }

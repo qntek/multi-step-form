@@ -22,23 +22,39 @@
                 <div class="progress-steps">
                     <div class="progress-step progress-active">1</div>
                     <div class="progress-text">
-                        <div class="progress-text-step"><p>STEP 1</p></div>
-                        <div class="progress-text-title"><p>YOUR INFO</p></div>
+                        <div class="progress-text-step">
+                            <p>STEP 1</p>
+                        </div>
+                        <div class="progress-text-title">
+                            <p>YOUR INFO</p>
+                        </div>
                     </div>
                     <div class="progress-step">2</div>
                     <div class="progress-text">
-                        <div class="progress-text-step"><p>STEP 2</p></div>
-                        <div class="progress-text-title"><p>SELECT PLAN</p></div>
+                        <div class="progress-text-step">
+                            <p>STEP 2</p>
+                        </div>
+                        <div class="progress-text-title">
+                            <p>SELECT PLAN</p>
+                        </div>
                     </div>
                     <div class="progress-step">3</div>
                     <div class="progress-text">
-                        <div class="progress-text-step"><p>STEP 3</p></div>
-                        <div class="progress-text-title"><p>ADD-ONS</p></div>
+                        <div class="progress-text-step">
+                            <p>STEP 3</p>
+                        </div>
+                        <div class="progress-text-title">
+                            <p>ADD-ONS</p>
+                        </div>
                     </div>
                     <div class="progress-step">4</div>
                     <div class="progress-text">
-                        <div class="progress-text-step"><p>STEP 4</p></div>
-                        <div class="progress-text-title"><p>SUMMARY</p></div>
+                        <div class="progress-text-step">
+                            <p>STEP 4</p>
+                        </div>
+                        <div class="progress-text-title">
+                            <p>SUMMARY</p>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -68,7 +84,7 @@
                             <label for="user-phone">Phone Number</label>
                             <p class="error error-phone invisible">Phone number is required</p>
                         </div>
-                        <input type="number" id="user-phone" placeholder="e.g. +1 234 567 890" value="1234567891">
+                        <input type="number" id="user-phone" placeholder="e.g. +1 234 567 890">
                     </form>
                 </div>
 
@@ -111,10 +127,10 @@
                         </div>
                         <div class="toggle-contener">
                             <label class="toggle">
-                                <span class="toggle-label toggle-active">Monthly</span>
+                                <span class="toggle-label toggle-active" id="toggle-mo">Monthly</span>
                                 <input class="toggle-checkbox" id="toggle-checkbox" type="checkbox">
                                 <div class="toggle-switch"></div>
-                                <span class="toggle-label">Yearly</span>
+                                <span class="toggle-label" id="toggle-yr">Yearly</span>
                             </label>
                         </div>
                     </div>
@@ -182,13 +198,14 @@
                     <div class="content-four">
                         <div class="content-four-plan">
                             <div class="content-four-plan-text">
-                                <p class="step-four-plan-period"><span id="step-four-plan"></span> (<span id="step-four-period"></span>)</p>
+                                <p class="step-four-plan-period"><span id="step-four-plan"></span> (<span
+                                        id="step-four-period"></span>)</p>
                                 <button type='button' id="step-four-change-plan">Change</button>
                             </div>
 
                             <div class="content-four-plan-summary">
                                 <p class="content-four-plan-summary-text">
-                                    $<span id="step-four-plan-price"></span>/<span class="mo-yr"></span>
+                                    +$<span id="step-four-plan-price"></span>/<span class="mo-yr"></span>
                                 </p>
                             </div>
                         </div>
@@ -208,15 +225,18 @@
 
                     <div class="content-four-total-container">
                         <p class="text">Total (per <span id="step-four-total-period"></span>)</p>
-                        <p class="content-four-total-price">+$<span id="content-four-total-price"></span>/<span class="mo-yr">mo</span></p>
+                        <p class="content-four-total-price">+$<span id="content-four-total-price"></span>/<span
+                                class="mo-yr">mo</span></p>
                     </div>
                 </div>
 
-                <div class="content-window off content-five" id="content-five">
+                <div class="content-window content-five off" id="content-five">
                     <img src="./images/icon-thank-you.svg" alt="" class="content-five-img">
                     <h2 class="content-header">Thank you!</h2>
-                    <p class="content-text">Thanks for confirming your subscription! We hope you have fun using our platform. If you ever need support, please feel free to email us at <b>support@loremgaming.com</b>.</p>
-                    
+                    <p class="content-text">Thanks for confirming your subscription! We hope you have fun using our
+                        platform. If you ever need support, please feel free to email us at
+                        <b>support@loremgaming.com</b>.</p>
+
                 </div>
 
                 </div>
